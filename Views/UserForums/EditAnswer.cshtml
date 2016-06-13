@@ -1,0 +1,50 @@
+﻿@model Project4Geeks.Models.Answer
+@{
+    ViewBag.Title = "EditAnswer";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>EditAnswer</h2>
+
+
+
+<div class="col-lg-1"></div>
+
+
+<!-- Introduction div -->
+<div class="col-lg-6">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Edit Question</legend>
+
+            <div class="editor-label">
+                @Html.HiddenFor(model => model.QID)
+                @Html.HiddenFor(model => model.UID)
+                @Html.HiddenFor(model => model.AnsID)
+            </div>
+
+            <div class="editor-label">
+                Statement
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Statement, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Statement)
+            </div>
+            <br />
+            <p style="margin-top: 2%">
+                <input class="btn btn-primary" style="width:100%" type="submit" value="Save" /><br />
+
+            </p>
+        </fieldset>
+    }
+
+    <div style="margin-top: 2%">
+        @Html.ActionLink("Back to Question", "Details", "UserProjects", new { id = @Model.QID }, new { @class = "btn btn-default", style = "width:100%" })
+
+    </div>
+</div>

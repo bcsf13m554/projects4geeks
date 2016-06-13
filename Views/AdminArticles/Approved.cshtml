@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Project4Geeks.Models.Article>
+@{
+    ViewBag.Title = "Appoved";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Appoved</h2>
+
+<p>
+    @Html.ActionLink("Goto Unapproved Projects", "Index", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-responsive" style="text-align: center">
+    <tr>
+        <th style="text-align: center">
+            ID
+        </th>
+        <th style="text-align: center">
+            Language
+        </th>
+        <th style="text-align: center">
+            User Name
+        </th>
+        <th style="text-align: center">
+            Approved By
+        </th>
+        <th style="text-align: center">
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language.Language1)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.ActionLink("View", "Details", new { id = item.ArID, Approved = true }, new { @class = "btn btn-default btn-xs" })
+            </td>
+        </tr>
+    }
+
+</table>

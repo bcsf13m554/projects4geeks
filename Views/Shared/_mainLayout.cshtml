@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Hotel Deluxe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <link href="@Url.Content("~/Content/mytemplate/")css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="@Url.Content("~/Content/mytemplate/")css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/login.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/jquery.easydropdown.js"></script>
+    <!--Animation-->
+    <script src="@Url.Content("~/Content/mytemplate/")js/wow.min.js"></script>
+    <link href="@Url.Content("~/Content/mytemplate/")css/animate.css" rel='stylesheet' type='text/css' />
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+   @Html.Partial("/Views/Shared/_mainHeader.cshtml")
+   @*@Html.Partial("/Views/Shared/_banner.cshtml")*@
+
+    <div class="content_middle">
+        <div class="container">
+            <div class="content_middle_box">
+
+
+                <div class="top_grid wow fadeInRight" data-wow-delay="0.4s">
+
+                    @RenderBody()
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    @Html.Partial("/Views/Shared/_footer.cshtml")
+</body>
+</html>

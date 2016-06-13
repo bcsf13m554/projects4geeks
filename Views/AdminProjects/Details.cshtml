@@ -1,0 +1,35 @@
+﻿@model Project4Geeks.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2></h2>
+<div class="col-lg-12">
+    <h2 class="col-lg-6">@Html.DisplayFor(modelItem => Model.Title)</h2>
+
+    <div class="col-lg-6" style="text-align: right">
+        <span class="btn btn-default btn-xs disabled">@Html.DisplayFor(modelItem => Model.Language.Language1)</span>
+          by: <span class="btn btn-danger btn-xs disabled">@Html.DisplayFor(modelItem => Model.User.FName)</span>
+          ID: <span class="btn btn-primary btn-xs disabled">@Html.DisplayFor(modelItem => Model.User.UID)</span>
+
+    </div>
+
+    <hr />
+    <br />
+    <div class="col-lg-12">
+        <p>@Model.Description</p>
+    </div>
+</div>
+<hr />
+<br />
+<div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:2%">
+    
+            @if (bool.Parse(Session["Approved"].ToString()) == false)
+{
+    @Html.ActionLink("Approve", "Approve", new { id = Model.PID }, new { @class = "btn btn-default" })
+}
+@Html.ActionLink("Delete", "DeleteConfirmed", new { id = Model.PID }, new { @class = "btn btn-danger" })
+    
+</div>

@@ -1,0 +1,35 @@
+﻿@model Project4Geeks.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Project4Geeks.Models.User user = Session["UserData"] as Project4Geeks.Models.User;
+}
+
+<div class="col-lg-12">
+    <h2 class="col-lg-6">@Html.DisplayFor(modelItem => Model.Title)</h2>
+
+    <div class="col-lg-6" style="text-align: right">
+        <span class="btn btn-default btn-xs disabled">@Html.DisplayFor(modelItem => Model.Language.Language1)</span>  by: <span class="btn btn-danger btn-xs disabled">@Html.DisplayFor(modelItem => Model.User.FName)</span>
+    </div>
+
+    <hr />
+    <br />
+    <div class="col-lg-12">
+        <p>@Model.Description</p>
+    </div>
+</div>
+<hr />
+<br />
+<div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:2%">
+
+    <p class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">@Html.ActionLink("Back to List", "Index", "UserProjects", new { @class = "btn btn-default", style = "width:100%" })</p>
+
+    @{
+        if (Model.UID == user.UID)
+        {
+            <p class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">@Html.ActionLink("Edit", "Edit", new { id = Model.PID }, new { @class = "btn btn-default", style = "width:100%" })</p>
+            <p class="col-lg-4 col-md-4 col-sm-4" style="text-align: left;">@Html.ActionLink("Delete", "DeleteConfirmed", new { id = Model.PID }, new { @class = "btn btn-danger", style = "width:100%" })</p>
+        }
+}
+    </div>

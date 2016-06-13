@@ -1,0 +1,16 @@
+﻿@model Project4Geeks.Models.Information
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="col-lg-4"></div>
+<div class="col-lg-6">
+    <h2>@Model.Title</h2>
+
+    <div class="alert-danger">
+        @Model.Description
+    </div>
+    <a style="margin-top:2%; margin-bottom: 4%" class="btn btn-danger" href="@Model.link">@Model.button</a>
+</div>

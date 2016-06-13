@@ -1,0 +1,27 @@
+﻿@model Project4Geeks.Models.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+     <!-- Image div -->
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <img src=@Model.Image height="75px" />
+    </div>
+
+    <!-- Introduction div -->
+    <div class="col-lg-7 col-md-7 col-sm-7">
+        <h2>@Model.FName @Model.LName</h2>
+
+        <p>@Model.Introduction</p>
+    </div>
+</div>
+<br />
+<div style="margin-top: 10%; margin-left: 30%">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UID }, new { @class = "btn btn-default", style = "width: 50%" })
+</div>
+        
+  

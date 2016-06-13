@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project4Geeks.Models.Language>
+@{
+    ViewBag.Title = "Languages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2></h2>
+
+<p>
+</p>
+<div style="position: relative">
+    <div class="col-lg-3">
+        <div>
+            <h2>Add New</h2>
+            <form action="/Admin/AddLanguages" method="post">
+                <p><strong>Language</strong></p>
+                <input type="hidden" name="LID" />
+                <input class="form-control" name="Language1" type="text" placeholder="Language Name" />
+                <hr />
+                <input class="btn btn-primary" type="submit" value="Add Language" style="width:100%" />
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <h2>Existing Languages</h2>
+        <table class="table table-striped table-responsive" style="text-align: center">
+            <tr>
+                <th style="text-align: center">
+                    ID
+                </th>
+                <th style="text-align: center">
+                    Language
+                </th>
+                @*<th style="text-align: center">
+                    Action
+                </th>*@
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language1)
+                    </td>
+                    @*<td>
+                        @Html.ActionLink("Remove", "DeleteConfirmed", new { id = item.LID }, new { @class = "btn btn-danger btn-xs" })
+                    </td>*@
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</div>
+<!-- end page-wrapper -->

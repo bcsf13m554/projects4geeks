@@ -1,0 +1,60 @@
+﻿@using Project4Geeks.Models;
+@{    
+    User UserProfile = Session["UserData"] as User;
+}
+<div class="header">
+    <div class="col-sm-8 header-left">
+        <div class="logo">
+            <a href="@Url.Action("Index","User")">
+                <img style="width: 100px;" src="@Url.Content("~/Content/mytemplate/")images/headerlogo.png" alt="" />
+            </a>
+        </div>
+        <div class="menu">
+            <a class="toggleMenu" href="#">
+                <img src="@Url.Content("~/Content/mytemplate/")images/nav.png" alt="" />
+            </a>
+            <ul class="nav" id="nav">
+                <li id="HomePage" class="active"><a href="@Url.Action("Index", "UserProfile", new { id = UserProfile.UID })">Home</a></li>
+                <li id="ForumPage"><a href="@Url.Action("Index","UserForums")">Forums</a></li>
+                <li id="ArticlesPage"><a href="@Url.Action("Index","UserArticles")">Articles</a></li>
+                <li id="ProjectsPage"><a href="@Url.Action("Index","UserProjects")">Projects</a></li>
+            </ul>
+            <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/responsive-nav.js"></script>
+        </div>
+        <!-- start search-->
+        <div class="search-box">
+            <div id="sb-search" class="sb-search" style="margin-top: 0px;">
+                <form>
+                    <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                    <input class="sb-search-submit" type="submit" value="">
+                    <span class="sb-icon-search"> </span>
+                </form>
+            </div>
+        </div>
+        <!----search-scripts---->
+        <script src="@Url.Content("~/Content/mytemplate/")js/classie.js"></script>
+        <script src="@Url.Content("~/Content/mytemplate/")js/uisearch.js"></script>
+        <script>
+            new UISearch(document.getElementById('sb-search'));
+        </script>
+        <!----//search-scripts---->
+        <div class="clearfix"></div>
+    </div>
+    <div class="col-sm-4 header_right">
+        <script>
+            function show() {
+                document.getElementById("loginBox").style.display = "block";
+            }
+            function hide() {
+                document.getElementById("loginBox").style.display = "none";
+            }
+        </script>
+        <div id="loginContainer" style="text-align: right">
+            <a id="loginbutton" href="/home/logout">
+                <img src="@Url.Content("~/Content/mytemplate/")images/login.png"><span>Logout</span>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

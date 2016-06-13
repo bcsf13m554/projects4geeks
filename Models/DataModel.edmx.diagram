@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="96a2bbcad56d4431ae61fa0ed06f5b51" Name="Diagram1">
+        <EntityTypeShape EntityType="projects4geeksModel.Admin" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.AFile" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.Answer" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.Article" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.Comment" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.Language" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.PFile" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.Project" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.Question" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projects4geeksModel.User" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="projects4geeksModel.FK_Articles_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Projects_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Questions_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_AFiles_ATable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_AFiles_UTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Answer_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Answer_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Articles_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Articles_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Projects_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Questions_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_PFiles_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_PFiles_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Projects_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="projects4geeksModel.FK_Questions_ToTable_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

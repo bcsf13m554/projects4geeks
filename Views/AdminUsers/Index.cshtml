@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Project4Geeks.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script type="text/javascript">
+    $("document").ready(
+        $("#ConfirmPassword").change(function () {
+                var pass = $("#password").val();
+                var Cpass = $("#ConfirmPassword").val();
+                if (pass != cpass) {
+                    $("#password").css("background-color", "pink");
+                    $("#password").focus();
+                }
+            })
+        );
+</script>
+
+<h2></h2><p>
+</p>
+<div style="position: relative">
+    <div class="col-lg-3">
+        <div>
+            <h2>Add New</h2>
+            <form action="/AdminUsers/CreateUser" method="post">
+                <p><strong>User</strong></p>
+                <input type="hidden" name="UID" />
+                <input class="form-control" name="FName" type="text" placeholder="First Name" />
+                <br />
+                <input class="form-control" name="LName" type="text" placeholder="Last Name" />
+                <br />
+                <input class="form-control" name="Email" type="text" placeholder="Roll Number" />
+                <br />
+                <input id="password" class="form-control" name="pass" type="password" placeholder="Password" />
+                <br />
+                <input type="file" class="btn btn-default" name="Image" style="width:100%" />
+                <hr />               
+                <input class="btn btn-primary" type="submit" value="Add User" style="width:100%" />
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <h2>Existing Users</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RollNo)
+                    </td>
+                    <td>
+                        @Html.ActionLink("View", "Details", new { id = item.UID }, new { @class = "btn btn-default btn-xs" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>

@@ -1,0 +1,83 @@
+﻿@model Project4Geeks.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="col-lg-1"></div>
+
+
+<!-- Introduction div -->
+<div class="col-lg-6">
+    <form method="post" action="/UserProfile/Edit" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>User</legend>
+
+            <div>
+                @Html.HiddenFor(model => model.UID)
+            </div>
+
+            <div class="editor-label">
+                First Name
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.FName, new { @class = "form-control", type = "text" })
+                @Html.ValidationMessageFor(model => model.FName)
+            </div>
+            <br />
+            <div class="editor-label">
+                Last Name
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.LName, new { @class = "form-control", type = "text" })
+                @Html.ValidationMessageFor(model => model.LName)
+            </div>
+            <br />
+            <div class="editor-label">
+                Roll No.
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.RollNo, new { @class = "form-control", type = "text" })
+                @Html.ValidationMessageFor(model => model.RollNo)
+            </div>
+            <br />
+            <div class="editor-label">
+                Password
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password" })
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+            <br />
+            <div class="editor-label">
+                Introduction
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Introduction, new { @class = "form-control", type = "text" })
+                @Html.ValidationMessageFor(model => model.Introduction)
+            </div>
+            <br />
+            <div class="editor-label">
+                <img src="@Model.Image" height="75px" />
+            </div>
+            <div class="editor-field">
+                <input type="file" class="btn btn-default" name="Image" style="width:100%" />
+            </div>
+            <hr />
+
+            <input class="btn btn-primary" style="width:50%" type="submit" value="Save changes" />
+            <br />
+            <hr />
+            @Html.ActionLink("Back", "Index", new { id = Model.UID }, new { @class = "btn btn-default", style = "width: 50%" })
+
+
+        </fieldset>
+    </form>
+    
+</div>
+
+<div class="col-lg-1"></div>

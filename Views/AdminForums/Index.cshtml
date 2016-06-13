@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Project4Geeks.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <h2></h2>
+        @Html.ActionLink("Goto Approved Questions", "Approved",null, new { @class = "btn btn-primary" })
+    <p>
+    </p>
+    <table class="table table-striped table-responsive" style="text-align: center" >
+        <tr>
+            <th style="text-align: center">
+                ID
+            </th>
+            <th style="text-align: center">
+                Language
+            </th>
+            <th style="text-align: center">
+                User Name
+            </th>
+            <th style="text-align: center">
+                Statement
+            </th>
+            <th style="text-align: center">
+                Action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language.Language1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Statement)
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Details", new { id = item.QID, Approved = false }, new { @class = "btn btn-default btn-xs" }) 
+                    @Html.ActionLink("Approve", "Approve", new { id = item.QID }, new { @class = "btn btn-primary btn-xs" } )
+                    @Html.ActionLink("Delete", "DeleteConfirmed", new { id = item.QID, page = "Index" }, new { @class = "btn btn-danger btn-xs" })
+          
+                   
+                </td>
+            </tr>
+        }
+
+    </table>

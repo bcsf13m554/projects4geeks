@@ -1,0 +1,57 @@
+﻿@model Project4Geeks.Models.Question
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="col-lg-1"></div>
+
+
+<!-- Introduction div -->
+<div class="col-lg-6">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Question</legend>
+
+            <div class="editor-label">
+                Language
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("LID", null, String.Empty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LID)
+            </div>
+            <br />
+            <div class="editor-label">
+                Title
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control", type = "text" })
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+
+            <div class="editor-label">
+                Description
+            </div>
+            <br />
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Statement, new { @class = "form-control", type = "text" })
+                @Html.ValidationMessageFor(model => model.Statement)
+            </div>
+
+            <p style="margin-top: 2%">
+                <input class="btn btn-primary" style="width:100%" type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+
+    <div style="margin-top: 2%">
+        @Html.ActionLink("Back to List", "Index", "UserProjects", new { @class = "btn btn-default", style = "width:100%" })
+
+    </div>
+</div>

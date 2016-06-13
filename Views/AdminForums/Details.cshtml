@@ -1,0 +1,30 @@
+﻿@model Project4Geeks.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <h2></h2>
+<div>
+    <div class="col-lg-1"></div>
+<div class="col-lg-10">
+    <fieldset>
+        <legend>Question</legend>
+        <p>@Model.Statement</p>
+    </fieldset>
+</div>
+<div class="col-lg-1"></div>
+</div>
+
+<div class="col-lg-2"></div>
+<div class="col-lg-4">
+    @if(bool.Parse(Session["Approved"].ToString()) == false)
+    {
+        @Html.ActionLink("Approve", "Approve", new { id = Model.QID }, new { @class = "btn btn-default" } )
+    }
+    @Html.ActionLink("Delete", "DeleteConfirmed", new { id = Model.QID, page = "Details" }, new { @class = "btn btn-danger" })
+</div>
+<div class="col-lg-4" style="text-align: right">
+    <p>User Name: <strong>@Model.User.FName</strong></p>
+</div>
+<div class="col-lg-2"></div>

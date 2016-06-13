@@ -1,0 +1,92 @@
+﻿@model Project4Geeks.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Project4Geeks.Models.User user = Session["UserData"] as Project4Geeks.Models.User;
+    List<Project4Geeks.Models.Answer> Answers = Model.Answers.ToList();
+}
+
+<div class="col-lg-12">
+    <h2 class="col-lg-6">@Html.DisplayFor(modelItem => Model.Title)</h2>
+
+    <div class="col-lg-6" style="text-align: right">
+        <span class="btn btn-default btn-xs disabled">@Html.DisplayFor(modelItem => Model.Language.Language1)</span>  by: <span class="btn btn-danger btn-xs disabled">@Html.DisplayFor(modelItem => Model.User.FName)</span>
+    </div>
+
+    <hr />
+    <br />
+    <div class="col-lg-12">
+        <p>@Model.Statement</p>
+    </div>
+    <br />
+    
+</div>
+<hr class="HorLine" />
+<br />
+<div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:2%">
+
+    <p class="col-lg-3 col-md-3 col-sm-3" style="text-align: center;">@Html.ActionLink("Back to List", "Index", "UserProjects", new { @class = "btn btn-default", style = "width:100%" })</p>
+   
+    @{
+        if (Model.UID == user.UID)
+        {
+            <p class="col-lg-3 col-md-3 col-sm-3" style="text-align: center;">@Html.ActionLink("Edit", "Edit", new { id = Model.QID }, new { @class = "btn btn-default", style = "width:100%" })</p>
+            <p class="col-lg-3 col-md-3 col-sm-3" style="text-align: left;">@Html.ActionLink("Delete", "DeleteConfirmed", new { id = Model.QID }, new { @class = "btn btn-danger", style = "width:100%" })</p>
+        }
+    }
+ </div>
+@{
+    if (Answers.Count > 0)
+    {
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:2%">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-10">
+        <h2>Answers</h2>
+        <table class="table table-striped table-responsive">
+            @{
+                int i = 1;
+                foreach(var a in Answers)
+                {
+                    <tr>
+                        <td><h3 class="col-lg-6">@i</h3></td>
+                        <td>
+                            
+                            <div class="col-lg-12" style="text-align: right">
+                                Answered by: <span class="btn btn-danger btn-xs disabled">@a.User.FName</span>
+                            </div>
+                            <div class="col-lg-12">
+                                <p>@a.Statement</p>
+                            </div>
+                            @if(@a.UID == @user.UID)
+                            {
+                                <div class="col-lg-12" style="text-align: right">
+                                    @Html.ActionLink("Edit", "EditAnswer", new { id = a.AnsID }) | 
+                                    @Html.ActionLink("Delete", "DeleteAnswer", new { id = a.AnsID })
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </table>
+    </div>
+</div>
+
+    }
+}
+<h2></h2>
+<div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:2%">
+    <div class="col-lg-8">
+        <h2>Your Answer</h2>
+        <form method="post" action="/UserForums/AddAnswer">
+            <input type="hidden" name="UID" value="@user.UID" />
+            <input type="hidden" name="QID" value="@Model.QID" />
+            <textarea class="form-control" name="Statement" placeholder="Give an Answer" style="width:100%"></textarea>
+            <hr />
+            <input type="submit" class="btn btn-primary" style="width:100%" value="Add your Answer" />
+        </form>
+    </div>
+    <div class="col-lg-4"></div>
+</div>

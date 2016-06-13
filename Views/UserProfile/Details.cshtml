@@ -1,0 +1,58 @@
+﻿@model Project4Geeks.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RollNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RollNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Introduction)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Introduction)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
