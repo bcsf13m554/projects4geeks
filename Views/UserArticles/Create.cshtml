@@ -34,11 +34,11 @@
                 @Html.TextBoxFor(model => model.Title, new { @class = "form-control", type = "text" })
                 @Html.ValidationMessageFor(model => model.Title)
             </div>
+            <br />
 
             <div class="editor-label">
                 Description
             </div>
-            <br />
             <div class="editor-field">
                 @Html.TextAreaFor(model => model.Description, new { @class = "form-control", type = "text" })
                 @Html.ValidationMessageFor(model => model.Description)
